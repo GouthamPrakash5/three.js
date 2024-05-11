@@ -79,6 +79,10 @@ function Strings( config ) {
 			'sidebar/animations/stop': 'Stop',
 			'sidebar/animations/timescale': 'Time Scale',
 
+
+			'sidebar/data':'Data',
+			
+
 			'sidebar/scene': 'Scene',
 			'sidebar/scene/background': 'Background',
 			'sidebar/scene/environment': 'Environment',
@@ -236,6 +240,15 @@ function Strings( config ) {
 			'sidebar/geometry/tube_geometry/closed': 'Closed',
 			'sidebar/geometry/tube_geometry/curvetype': 'Curve Type',
 			'sidebar/geometry/tube_geometry/tension': 'Tension',
+
+
+			'sidebar/gun/particle':'Particle',
+			'sidebar/gun/particle type':'Particle type',
+			'sidebar/gun/energy':'Energy',
+			'sidebar/gun/position':'Position',
+			'sidebar/gun/momentum':'Momentum',
+			'sidebar/gun/number':'Number of Particles',
+
 
 			'sidebar/material/element': 'Element',
 			'sidebar/material/new': 'New',

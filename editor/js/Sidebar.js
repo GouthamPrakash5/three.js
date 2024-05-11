@@ -22,6 +22,7 @@ function Sidebar( editor ) {
 	container.addTab( 'scene', strings.getKey( 'sidebar/scene' ), scene );
 	container.addTab( 'project', strings.getKey( 'sidebar/project' ), project );
 	container.addTab( 'settings', strings.getKey( 'sidebar/settings' ), settings );
+	container.addTab( 'data', strings.getKey( 'sidebar/data' ) );
 	container.select( 'scene' );
 
 	return container;

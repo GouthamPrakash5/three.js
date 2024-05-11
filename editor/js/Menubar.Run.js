@@ -1,4 +1,5 @@
 import { Selector } from './Selector.js';
+import { SidebarMaterial } from './Sidebar.Material.js';
 import { SetMaterialValueCommand } from './commands/SetMaterialValueCommand.js';
 import { SetPositionCommand } from './commands/SetPositionCommand.js';
 import { UIPanel, UIRow } from './libs/ui.js';
@@ -78,7 +79,7 @@ function MenubarRun( editor ) {
 
 
 
-           	    // console.log(editor.scene.children)
+       // console.log(editor.scene.children)
 		//   console.log(Object.values(editor.scene.children)[1].rotation)
 		const obj = {
 			ip: 0,
@@ -166,7 +167,7 @@ function MenubarRun( editor ) {
 	//   console.log(Object.values(editor.geometries)[1].type)
 //  console.log(Object.values(editor.materials)[3].type)
 // console.log(editor.strings)
-
+// console.log(editor.materials)
 
 
 // // JSON to Text file

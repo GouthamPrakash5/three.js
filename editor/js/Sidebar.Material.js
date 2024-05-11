@@ -41,7 +41,11 @@ function SidebarMaterial( editor ) {
 	
 	//Element
 	 const materialElementRow = new UIRow();
-	 const materialElement = new UISelect().setWidth( '150px' ).setFontSize( '12px' ).onChange( update );
+	 const materialElement = new UISelect().setWidth( '150px' ).setFontSize( '12px' ).onChange( function () {
+
+	 editor.execute( new SetMaterialValueCommand( editor, editor.selected, 'element', materialElement.getValue(), currentMaterialSlot ) );
+
+	 });
 
 	 materialElementRow.add(new UIText(strings.getKey('sidebar/material/element')).setClass( 'Label' ) );
      materialElementRow.add(materialElement);
@@ -96,7 +100,7 @@ function SidebarMaterial( editor ) {
 
 	// color
 
-	const materialColor = new SidebarMaterialColorProperty( editor, 'color', strings.getKey( 'sidebar/material/color' ) );
+	const materialColor = new SidebarMaterialColorProperty( editor, 'color', strings.getKey( 'sidebar/material/color' ));
 	container.add( materialColor );
 
 	// specular
@@ -710,7 +714,8 @@ const meshMaterialOptions = {
 	'MeshPhysicalMaterial': 'MeshPhysicalMaterial',
 	'RawShaderMaterial': 'RawShaderMaterial',
 	'ShaderMaterial': 'ShaderMaterial',
-	'ShadowMaterial': 'ShadowMaterial'
+	'ShadowMaterial': 'ShadowMaterial',
+	
 	
 };
 

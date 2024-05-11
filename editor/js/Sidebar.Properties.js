@@ -4,7 +4,7 @@ import { SidebarObject } from './Sidebar.Object.js';
 import { SidebarGeometry } from './Sidebar.Geometry.js';
 import { SidebarMaterial } from './Sidebar.Material.js';
 import { SidebarScript } from './Sidebar.Script.js';
-
+import { SidebarGun } from './Sidebar.Gun.js';
 function SidebarProperties( editor ) {
 
 	const strings = editor.strings;
@@ -15,7 +15,7 @@ function SidebarProperties( editor ) {
 	container.addTab( 'objectTab', strings.getKey( 'sidebar/properties/object' ), new SidebarObject( editor ) );
 	container.addTab( 'geometryTab', strings.getKey( 'sidebar/properties/geometry' ), new SidebarGeometry( editor ) );
 	container.addTab( 'materialTab', strings.getKey( 'sidebar/properties/material' ), new SidebarMaterial( editor ) );
-	container.addTab('gunTab',strings.getKey('sidebar/properties/gun'))
+	container.addTab('gunTab',strings.getKey('sidebar/properties/gun'),new SidebarGun (editor));
 	container.addTab( 'scriptTab', strings.getKey( 'sidebar/properties/script' ), new SidebarScript( editor ) );
 	
 	container.select( 'objectTab' );

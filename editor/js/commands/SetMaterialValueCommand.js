@@ -4,17 +4,19 @@ import { Command } from '../Command.js';
  * @param editor Editor
  * @param object THREE.Object3D
  * @param attributeName string
+ *  @param attributeElement string
  * @param newValue number, string, boolean or object
  * @constructor
  */
 class SetMaterialValueCommand extends Command {
 
-	constructor( editor, object, attributeName, newValue, materialSlot ) {
+	constructor( editor, object, attributeName, attributeElement, newValue, materialSlot ) {
 
 		super( editor );
 
 		this.type = 'SetMaterialValueCommand';
 		this.name = `Set Material.${attributeName}`;
+		this.element = `Set Material.${ attributeElement}`;
 		this.updatable = true;
 
 		this.object = object;
@@ -26,12 +28,14 @@ class SetMaterialValueCommand extends Command {
 		this.newValue = newValue;
 
 		this.attributeName = attributeName;
+		this.attributeElement = attributeElement ;
 
 	}
 
 	execute() {
 
 		this.material[ this.attributeName ] = this.newValue;
+		this.material[ this.attributeElement ] = this.newValue;
 		this.material.needsUpdate = true;
 
 		this.editor.signals.objectChanged.dispatch( this.object );
@@ -42,6 +46,7 @@ class SetMaterialValueCommand extends Command {
 	undo() {
 
 		this.material[ this.attributeName ] = this.oldValue;
+		this.material[ this.attributeElement ] = this.oldValue;
 		this.material.needsUpdate = true;
 
 		this.editor.signals.objectChanged.dispatch( this.object );
@@ -61,6 +66,7 @@ class SetMaterialValueCommand extends Command {
 
 		output.objectUuid = this.object.uuid;
 		output.attributeName = this.attributeName;
+		output.attributeElement = this.attributeElement;
 		output.oldValue = this.oldValue;
 		output.newValue = this.newValue;
 
@@ -73,6 +79,7 @@ class SetMaterialValueCommand extends Command {
 		super.fromJSON( json );
 
 		this.attributeName = json.attributeName;
+		this.attributeElement = json.attributeElement;
 		this.oldValue = json.oldValue;
 		this.newValue = json.newValue;
 		this.object = this.editor.objectByUuid( json.objectUuid );
